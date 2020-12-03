@@ -22,6 +22,8 @@ let 功能 = 0
 music.setVolume(7)
 music.playTone(523, music.beat(BeatFraction.Whole))
 功能 = 3
+原功能 = 3
+let direction = 3
 basic.forever(function () {
     if (功能 == 0) {
         if (input.lightLevel() > 250) {
@@ -31,7 +33,80 @@ basic.forever(function () {
             basic.showNumber(input.temperature())
         }
     } else if (功能 == 1) {
-        basic.showNumber(input.lightLevel())
+        direction = 360 - input.compassHeading()
+        if (direction < 22.5) {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . # . .
+                . . . . .
+                . . . . .
+                `)
+        } else if (direction < 67.5) {
+            basic.showLeds(`
+                . . . . #
+                . . . # .
+                . . # . .
+                . . . . .
+                . . . . .
+                `)
+        } else if (direction < 112.5) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . # # #
+                . . . . .
+                . . . . .
+                `)
+        } else if (direction < 157.5) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . # . .
+                . . . # .
+                . . . . #
+                `)
+        } else if (direction < 202.5) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . # . .
+                . . # . .
+                . . # . .
+                `)
+        } else if (direction < 247.5) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . # . .
+                . # . . .
+                # . . . .
+                `)
+        } else if (direction < 292.5) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                # # # . .
+                . . . . .
+                . . . . .
+                `)
+        } else if (direction < 337.5) {
+            basic.showLeds(`
+                # . . . .
+                . # . . .
+                . . # . .
+                . . . . .
+                . . . . .
+                `)
+        } else {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . # . .
+                . . . . .
+                . . . . .
+                `)
+        }
     } else if (功能 == 2) {
         basic.showNumber(input.soundLevel())
     } else if (功能 == 4) {
