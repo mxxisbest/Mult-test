@@ -33,7 +33,7 @@ basic.forever(function () {
     } else if (功能 == 1) {
         basic.showNumber(input.lightLevel())
     } else if (功能 == 2) {
-        basic.showNumber(input.compassHeading())
+        basic.showNumber(input.soundLevel())
     } else if (功能 == 4) {
         while (功能 == 4) {
             music.playTone(988, music.beat(BeatFraction.Double))
